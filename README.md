@@ -1,7 +1,7 @@
 # SRE Monitoring Documentation
 
 ## AWS Cloud Watch 
-
+![CLOUDW](img/cloudwatch.png)
 Monitoring service for AWS resources and services 
 - Scalable
 - Highly available 
@@ -16,7 +16,7 @@ Auto adjusts the amount of computational resources based on the server load is a
 ## Loadbalancing
 Used to distribute traffic between EC2 instances so no individual instance gets overwhelmed
 which could lead to crashes and failures.
-
+![LOADB](img/Load_Balancers.png)
 ### Application Load Balancer
 If you are running only one 
 ### Network Load Balancer
