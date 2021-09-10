@@ -22,15 +22,20 @@ when you add more instances to your Auto Scaling Group it is often easier to sca
 ![horizontal](img/horizon.png)
 
 ## Loadbalancing
-Used to distribute traffic between EC2 instances so no individual instance gets overwhelmed
-which could lead to crashes and failures.
-![LOADB](img/Load_Balancers.png)
-### Application Load Balancer
-If you are running only one 
-### Network Load Balancer
-Multiple VPC
-### Classic Load Balancer
+Load balancers are used to increase capacity (concurrent users) and reliability of applications. They improve the overall performance of applications by decreasing the burden on servers associated with managing and maintaining application and network sessions, as well as by performing application-specific tasks
+In our case we use the load balancer to distribute traffic across multiple EC2 instances which will be spun up if the CPU usage is about 50%.
 
+![LOADB](img/Load_Balancers.png)
+
+### Application Load Balancer
+The Application Load Balancer operates at the request level only. If you're dealing with HTTP requests, which you are for your web application, you can use this. It supports the basic feature of distributing requests using the round robin algorithm. It also supports advanced features like host and path based routing.
+
+### Network Load Balancer
+Network Load Balancing (NLB) feature distributes traffic across several servers by using the TCP/IP networking protocol. By combining two or more computers that are running applications into a single virtual cluster, NLB provides reliability and performance for web servers and other mission-critical servers
+servers in an NLB cluster are called hosts, and each host runs a separate copy of the server applications. NLB distributes incoming client requests across the hosts in the cluster. You can configure the load that is to be handled by each host. You can also add hosts dynamically to the cluster to handle increased load. NLB can also direct all traffic to a designated single host, which is called the default host
+
+### Classic Load Balancer
+The Classic Load Balancer operates on both the request and connection levels. However, it doesn't support features like host and path based routing. This is the first load balancer that AWS introduced in 2009 so it is missing some features. The Application Load Balancer was introduced to address this. A Classic Load Balancer is recommended only for EC2 Classic instances.
 
 ## Creating an Auto Scaling Group
 ### First a Launch Template is needed
