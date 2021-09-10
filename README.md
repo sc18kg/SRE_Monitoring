@@ -48,7 +48,6 @@ Multiple VPC
 - Network
     - VPC `default`
     - Subnets: `eu-west-1a | subnet`
-####  Here I created the Load balancer settings 
  - Load balancing - optional: `Attatch to a new load balancer` unless you have one currently set up
  - Load balancer name `SRE-kieron-scaling-1`
  - Availability Zones and subnets: Select `eu-west-1b` as there is at least 2 subnets needed
