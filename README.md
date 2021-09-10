@@ -11,7 +11,11 @@ Track metrics, collect log files and automatically react to changes in AWS resou
 Auto adjusts the amount of computational resources based on the server load is a configuration set to manage the size of the instance, once the traffic has reduced the autoscaling then terminates the created additional instances.
 
 ### Scale-up
+Scaling up is when you change the instance types within your Auto Scaling Group to a higher type (for example: changing an instance from a t.micro to a t.medium.
+Vertical-scaling is often limited to the capacity of a single machine, scaling beyond that capacity often involves downtime and comes with an upper limit.
+
 ### Scale-out (Horizontal)
+ when you add more instances to your Auto Scaling Group it is often easier to scale dynamically by adding more machines into the existing pool. 
 
 ## Loadbalancing
 Used to distribute traffic between EC2 instances so no individual instance gets overwhelmed
