@@ -16,7 +16,9 @@ Vertical-scaling is often limited to the capacity of a single machine, scaling b
 ![vert](img/vert.png)
 
 ### Scale-out (Horizontal)
-when you add more instances to your Auto Scaling Group it is often easier to scale dynamically by adding more machines into the existing pool. 
+Horizontal scaling (aka scaling out) refers to adding additional nodes or machines to your infrastructure to cope with new demands. If you are hosting an application on a server and find that it no longer has the capacity or capabilities to handle traffic, adding a server may be your solution
+when you add more instances to your Auto Scaling Group it is often easier to scale dynamically by adding more machines into the existing pool.
+
 ![horizontal](img/horizon.png)
 
 ## Loadbalancing
