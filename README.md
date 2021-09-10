@@ -22,3 +22,52 @@ If you are running only one
 ### Network Load Balancer
 Multiple VPC
 ### Classic Load Balancer
+
+
+## Creating an Auto Scaling Group
+### First a Launch Template is needed
+- Navigate to `Auto Scaling Groups` on the left hand navigation menu
+- Click ` Create an Auto Scaling group`
+- Select `Create a launch template`
+- Launch template name: `SRE_kieron_AUTOS`
+- Click `Add Tag` Key: `Name` Value: `SRE_kieron_AUTOS`
+- Amazon machine image (AMI): `SRE_kieron_app_ami`
+- Auto Scaling group name: `SRE_kieron_AUTOS`
+- Instance type: `t1.micro`
+- Key pair (login): `sre_key`
+- Network settings
+    - Networking platform: `Virtual Private Cloud (VPC)`
+    - Security groups: `sre_kieron_app`
+- Click `Create launch template`
+
+### Now for the Auto Scaling group from template
+- Click `Create Auto Scaling group`
+- Auto Scaling group name: `SRE_kieron_scaling`
+- Launch template: `SRE_kieron_AUTOS`
+- Click `Next`
+- Network
+    - VPC `default`
+    - Subnets: `eu-west-1a | subnet`
+####  Here I created the Load balancer settings 
+ - Load balancing - optional: `Attatch to a new load balancer` unless you have one currently set up
+ - Load balancer name `SRE-kieron-scaling-1`
+ - Availability Zones and subnets: Select `eu-west-1b` as there is at least 2 subnets needed
+ - Default routing (forward to): `Create a target group` unless you have already configured this
+ - Click `Next`
+ - Configure group size and scaling policies
+    - Group size
+    - Desired capacity: `1`
+    - Minimum capacity: `1`
+    - Maximum capacity: `3`
+ - Scaling policies
+    - Target tracking scaling policy
+    - Scaling policy name: ` SRE_kieron_tt`
+    - Metric type: `Average CPU utilization`
+    - Target value: `50`
+    - Click `Next`
+ - Add notifications
+    - Click `Add notification`
+    - Come back to this)
+ - click `Create Auto Scaling group`
+## Attaching to AWS CloudWatch
+
